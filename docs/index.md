@@ -1,2 +1,2 @@
-# Práctica 1 - Configuración de máquina virtual en el IaaS
+# Práctica 2 - Instalación y configuración de Visual Studio Code
 * Elaborado por Eduardo Da Silva Yanes
