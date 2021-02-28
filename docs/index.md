@@ -24,7 +24,7 @@ Si nos encontramos en un entorno Linux, como es nuestro caso, podemos realizar l
 ```
 o haciendo uso de snap (otro gestor de paquetes)
 ```bash
-...$  sudo apt install code
+...$  sudo snap install code --classic
 ```
 
 ![VS Code](images/vscode.PNG)
