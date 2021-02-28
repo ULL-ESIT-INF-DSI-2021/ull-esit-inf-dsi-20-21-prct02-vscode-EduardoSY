@@ -167,8 +167,10 @@ A la hora de realizar la práctica hubo un problema general entre los alumnos co
 
 ## 4. Conclusión
 Esta práctica nos permite tener un entorno de desarrollo más óptimo y cómodo, tanto para nosotros como desarrolladores como para colaborar con nuestros compañeros. Conocer esas extenciones puede mejorar nuestra productividad y así poder dedicarle más tiempo a otras cosas más importantes.
+
 Así mismo, la parte de crear nuestro Hola mundo es muy interesante no solo porque ya tenemos todo lo necesario para poder generar nuestro propio código sino porque es la primera toma de contacto y nos permite entender cual es el proceso de compilación y estructura en este lenguaje.
 
 ## 5. Referencias
 * **[Guión Práctica 2 DSI](https://ull-esit-inf-dsi-2021.github.io/prct02-vscode/)**: Guión de la asignatura donde detalla el desarrollo de la práctica 2.
 * **[Guía sobre uso de Live Share](https://code.visualstudio.com/learn/collaboration/live-share)**: Guía con videotutorial sobre cómo usar Live Share.
+* **[Aporte de un foro Github](https://github.com/swdotcom/swdc-vscode/issues/246)**: Persona a la que le ocurre lo mismo que nos ocurría a nosotros con Code Time.
