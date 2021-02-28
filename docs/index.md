@@ -1,10 +1,20 @@
 # Práctica 2 - Instalación y configuración de Visual Studio Code
 * Elaborado por Eduardo Da Silva Yanes
+
+## Nota aclaratoria
+Durante el informe vamos a ver textos e instrucciones que corresponden a comandos de consola. Los comandos que deben ser introducidos en consola van precedidos de **...$** haciendo referencia al prompt. Los comentarios aclarativos tienen, al igual que muchos lenguajes de programación, **//** antes del comentario. Finalmente, si hay un texto sin ninguna de estas cosas debe ser interpretado como eso, un texto, que puede debe ser escrito o leido según corresponda.
+```bash
+...$ ESTO CORRESPONDE A COMANDOS
+// ESTO CORRESPONDE A COMENTARIOS ACLARATIVOS
+ESTO CORRESPONDE A TEXTO DE ENTRADA O SALIDA (Depende del contexto)
+```
+
 ## 1. Introduccion
 En esta segunda práctica vamos a centrarnos más en el entorno de trabajo. Vamos a configurar el entorno de Visual Studio Code para poder trabajar cómodamente, instalando extensiones y configurando la conexión SSH.
 Una vez hecho esto vamos a tener una primera toma de contacto con Typescript creando un "Hola mundo".
-### Objetivos
+
 ## 2. Desarrollo de la práctica
+
 ### 2.1 Instalando VS Code
 Visual Studio Code es uno de los entornos más populares entre desarrolladores. Lo primero que vamos a hacer es instalarlo en nuestra máquina local.
 Si estamos en Windows podemos instalarlo como cualquier otra aplicación, descargando un ejecutable y ejecutandolo.
@@ -16,6 +26,9 @@ o haciendo uso de snap (otro gestor de paquetes)
 ```bash
 ...$  sudo apt install code
 ```
+
+![VS Code](images/vscode.PNG)
+
 En mi caso particular ya tenía instalado VSCode y lo he usado previamente pero si es la primera vez que tienes contacto con este editor/"ide" es recomendable que mires algún tutorial o guía para saber cómo son las funcionalidades del programa. En la documentación de VSCode tenemos la sección de **[Manejo básico](https://code.visualstudio.com/docs/editor/codebasics)** donde podemos aprender un poco, a lo largo de varias guías, cómo usar este editor.
 
 ### 2.2 Conectándose remotamente usando VS Code
@@ -33,6 +46,7 @@ Una vez hecho esto ya podemos hacer la conexión SSH. Como hemos dicho antes, pr
 ...$ hostname
 iaas-dsi44
 ```
+
 ### 2.3 Instalando más extensiones
 Vamos a instalar más extensiones para mejorar nuestra productividad. La primera de todas es **Live Share Extension Pack**. Esta extensión es un pack, como su nombre indica, dedicado a poder colaborar con otros usuarios simultaneamente en nuestro código. Además de poder compartir nuestros ficheros también nos proporciona chat de audio y voz.
 Para poder usar esta extensión debemos iniciar sesion con Github o Microsoft (para motivos de identificación en la sesión). Si somos el anfitrión se nos generará un link que debemos compartir con nuestros colaboradores. A la izquierda veremos quienes están conectados, qué se está compartiendo, etc. Si quieremos información más específica podemos obtenerla en el [Marketplace de Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack), en el apartado de **Getting started** o en esta [guia de colaboracion en VS Code](https://code.visualstudio.com/learn/collaboration/live-share). Además se nos recomienda instalar las extensiones que tenemos al final de la página de Live Share Extension Pack. Lo primordial para nuestro caso es instalar lo relacionado con el workflow de Github. El resto es a nuestra elección. **IMPORTENTE: No recomiendo instalar la extensión Code Time por los conflictos que ocasiona con la conexión SSH**
