@@ -33,6 +33,9 @@ En mi caso particular ya tenía instalado VSCode y lo he usado previamente pero 
 
 ### 2.2 Conectándose remotamente usando VS Code
 Lo primero que vamos a hacer es descargarnos la extensión [Remote-SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). Gracias a esta extensión podremos conectarnos por SSH a la máquina del IaaS.
+
+![Instalar extension](images/install.jpg)
+
 Una vez instalada podemos usar directamente la conexión SSH. Vemos que abajo a la izquierda hay un cuadradito verde. Podemos dar click ahí o presionar **F1** para abrir la paleta de comandos y luego buscamos **ssh**. Pulsamos sobre **Connect to host...**. Si hemos realizado todos los pasos de la [Práctica 1]() vemos que nos va a salir nuestra máquina iaas-dsi44. Si por algún motivo no hicimos esos pasos podemos hacer lo siguiente:Vamos a ir a **Configure SSH Hosts...** y elejimos la opción **~/.ssh/config**.
 Ahora debemos introducir lo siguiente:
 ```
@@ -41,7 +44,11 @@ Host iaas-dsi44
   User usuario
 ```
 Recordemos que iaas-dsi44 es mi máquina del IaaS. Cada uno debe poner la que le corresponda.
-Una vez hecho esto ya podemos hacer la conexión SSH. Como hemos dicho antes, presionamos en el icono verde de la esquina inferior izquierda o abrimos la paleta de comandos con **F1**, buscamos **ssh** y, en ambos casos, seleccionamos **Connect to host...**, seleccionando el host que acabamos de poner. Vemos que se nos abre una nueva ventana y en la esquina inferior izquierda vemos como pone que es una conexión ssh con iaas-dsi44. Abrimos una terminal en esta nueva ventana y lo primero que vemos es el característico prompt que configuramos en la práctica anterior pero de todos modos vamos a asegurarnos que estamos en el sitio correcto. Usemos el siguiente comando para verificarlo:
+Una vez hecho esto ya podemos hacer la conexión SSH. Como hemos dicho antes, presionamos en el icono verde de la esquina inferior izquierda o abrimos la paleta de comandos con **F1**, buscamos **ssh** y, en ambos casos, seleccionamos **Connect to host...**, seleccionando el host que acabamos de poner.
+
+![SSH](images/vscodessh.jpg)
+
+Vemos que se nos abre una nueva ventana y en la esquina inferior izquierda vemos como pone que es una conexión ssh con iaas-dsi44. Abrimos una terminal en esta nueva ventana y lo primero que vemos es el característico prompt que configuramos en la práctica anterior pero de todos modos vamos a asegurarnos que estamos en el sitio correcto. Usemos el siguiente comando para verificarlo:
 ```bash
 ...$ hostname
 iaas-dsi44
@@ -49,7 +56,12 @@ iaas-dsi44
 
 ### 2.3 Instalando más extensiones
 Vamos a instalar más extensiones para mejorar nuestra productividad. La primera de todas es **Live Share Extension Pack**. Esta extensión es un pack, como su nombre indica, dedicado a poder colaborar con otros usuarios simultaneamente en nuestro código. Además de poder compartir nuestros ficheros también nos proporciona chat de audio y voz.
-Para poder usar esta extensión debemos iniciar sesion con Github o Microsoft (para motivos de identificación en la sesión). Si somos el anfitrión se nos generará un link que debemos compartir con nuestros colaboradores. A la izquierda veremos quienes están conectados, qué se está compartiendo, etc. Si quieremos información más específica podemos obtenerla en el [Marketplace de Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack), en el apartado de **Getting started** o en esta [guia de colaboracion en VS Code](https://code.visualstudio.com/learn/collaboration/live-share). Además se nos recomienda instalar las extensiones que tenemos al final de la página de Live Share Extension Pack. Lo primordial para nuestro caso es instalar lo relacionado con el workflow de Github. El resto es a nuestra elección. **IMPORTENTE: No recomiendo instalar la extensión Code Time por los conflictos que ocasiona con la conexión SSH**
+Para poder usar esta extensión debemos iniciar sesion con Github o Microsoft (para motivos de identificación en la sesión). Si somos el anfitrión se nos generará un link que debemos compartir con nuestros colaboradores. A la izquierda veremos quienes están conectados, qué se está compartiendo, etc. Si quieremos información más específica podemos obtenerla en el [Marketplace de Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack), en el apartado de **Getting started** o en esta [guia de colaboracion en VS Code](https://code.visualstudio.com/learn/collaboration/live-share). Además se nos recomienda instalar las extensiones que tenemos al final de la página de Live Share Extension Pack. Lo primordial para nuestro caso es instalar lo relacionado con el workflow de Github. El resto es a nuestra elección.
+Una cosa a tener en cuenta es que, cuando estamos conectados a la máquina por SSH y queremos instalar una extensión, esa extensión se instalará **solo** en la máquina a la que estamos conectados, no en la local. Si queremos instalarlo también en nuestra máquina local debemos desconectarnos, instalarlas y luego conectarnos a la MV por SSH. Una vez conectados podemos activar en el menú de **Extensiones** las que consideremos.
+
+![Extensiones](images/extensiones.PNG)
+
+**IMPORTENTE: No recomiendo instalar la extensión Code Time por los conflictos que ocasiona con la conexión SSH**
 
 ### 2.4 Nuestro primer "Hola mundo"
 Antes de comenzar con el código vamos a instalar la extensión Eslint que nos comprueba el estilo del código de nuestros ficheros js y ts. Como bien nos dice la guia de la extensión, antes de instalarla debemos tener instalado eslint. Ya que esto es algo que vamos a utilizar mucho a lo largo del curso vamos a instalarlo globalmente con la opción:
@@ -64,6 +76,8 @@ Vamos a instalar el compilador de Typescript. Para ello haremos:
 ...$ tsc --version
 ```
 Como es de esperar, la opción --global nos permite que el compilador se instale de manera global.
+
+![Instalar extension](images/npmv2.PNG)
 
 Ahora comprobamos que estemos en nuestro directorio **home** con el comando:
 ```bash
@@ -82,6 +96,10 @@ El siguiente comando nos permite crear un fichero package.json cuya función es,
 // Comprobamos que se ha creado el fichero
 ...$ ls -lrtha
 ```
+
+![NPM](images/init.PNG)
+
+![Salida ls](images/ls.PNG)
 
 Abrimos nuestro directorio **Hello World** en VS Code. Para ello vamos a la opción **File** en la barra superior, **Open folder...** y abrimos nuestra carpeta.
 También podemos crear un workspace si lo deseamos. Para ello vamos de nuevo a **File** pero esta vez seleccionamos **Add Folder to Workspace...**. Si no teniamos ningún workspace previo se nos creará uno nuevo. Guardamos el espacio de trabajo en la opción **Save Workspace As...** y listo, ya podemos empezar a trabajar.
@@ -113,6 +131,9 @@ Creemos el fichero de nuestro "Hola mundo":
 ...$ touch index.ts
 ...$ ls
 ```
+
+![Fichero index](images/index.PNG)
+
 Abrimos el fichero en el editor y ponemos estas lineas:
 ```typescript
 let myString: string = "Hola Mundo";
@@ -134,6 +155,8 @@ Ahora si, veamos si nuestro **Hola mundo** ha funcionado:
 ...$ node dist/index.js
 ```
 Si todo ha salido bien deberías ver tu precioso "Hola mundo".
+
+![Final practica](images/final.jpg)
 
 ## 3. Dificultades 
 A la hora de realizar la práctica hubo un problema general entre los alumnos con las extensiones. En la parte donde se nos recomienda instalar la extensiones recomendadas que encontramos al final del marketplace, una de ellas daba un conflicto con la conexión SSH y continuamente hacía que esta cayera. Entre todos llegamos a la conclusión de que este era el problema ya que fuimos probando, desactivando las extensiones, hasta resolver el problema. Finalmente, indagando en la red hemos visto foros donde también reportan este problema.
