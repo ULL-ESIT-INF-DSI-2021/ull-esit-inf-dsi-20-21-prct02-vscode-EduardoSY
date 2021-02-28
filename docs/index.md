@@ -35,7 +35,7 @@ iaas-dsi44
 ```
 ### 2.3 Instalando más extensiones
 Vamos a instalar más extensiones para mejorar nuestra productividad. La primera de todas es **Live Share Extension Pack**. Esta extensión es un pack, como su nombre indica, dedicado a poder colaborar con otros usuarios simultaneamente en nuestro código. Además de poder compartir nuestros ficheros también nos proporciona chat de audio y voz.
-Para poder usar esta extensión debemos iniciar sesion con Github o Microsoft (para motivos de identificación en la sesión). Si somos el anfitrión se nos generará un link que debemos compartir con nuestros colaboradores. A la izquierda veremos quienes están conectados, qué se está compartiendo, etc. Si quieremos información más específica podemos obtenerla en el [Marketplace de Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack), en el apartado de **Getting started** o en esta [guia de colaboracion en VS Code](https://code.visualstudio.com/learn/collaboration/live-share). Además se nos recomienda instalar las extensiones que tenemos al final de la página de Live Share Extension Pack. Lo primordial para nuestro caso es instalar lo relacionado con el workflow de Github. El resto es a nuestra elección.
+Para poder usar esta extensión debemos iniciar sesion con Github o Microsoft (para motivos de identificación en la sesión). Si somos el anfitrión se nos generará un link que debemos compartir con nuestros colaboradores. A la izquierda veremos quienes están conectados, qué se está compartiendo, etc. Si quieremos información más específica podemos obtenerla en el [Marketplace de Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack), en el apartado de **Getting started** o en esta [guia de colaboracion en VS Code](https://code.visualstudio.com/learn/collaboration/live-share). Además se nos recomienda instalar las extensiones que tenemos al final de la página de Live Share Extension Pack. Lo primordial para nuestro caso es instalar lo relacionado con el workflow de Github. El resto es a nuestra elección. **IMPORTENTE: No recomiendo instalar la extensión Code Time por los conflictos que ocasiona con la conexión SSH**
 
 ### 2.4 Nuestro primer "Hola mundo"
 Antes de comenzar con el código vamos a instalar la extensión Eslint que nos comprueba el estilo del código de nuestros ficheros js y ts. Como bien nos dice la guia de la extensión, antes de instalarla debemos tener instalado eslint. Ya que esto es algo que vamos a utilizar mucho a lo largo del curso vamos a instalarlo globalmente con la opción:
@@ -70,4 +70,61 @@ El siguiente comando nos permite crear un fichero package.json cuya función es,
 ```
 
 Abrimos nuestro directorio **Hello World** en VS Code. Para ello vamos a la opción **File** en la barra superior, **Open folder...** y abrimos nuestra carpeta.
-También podemos crear
+También podemos crear un workspace si lo deseamos. Para ello vamos de nuevo a **File** pero esta vez seleccionamos **Add Folder to Workspace...**. Si no teniamos ningún workspace previo se nos creará uno nuevo. Guardamos el espacio de trabajo en la opción **Save Workspace As...** y listo, ya podemos empezar a trabajar.
+
+Vamos a crear un fichero tsconfig.json donde indicamos las opciones para el compilador de Typescript. Para ello hacemos:
+```bash
+...$ touch tsconfig.json
+```
+Abrimos el fichero y añadimos lo siguiente:
+```
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "module": "CommonJS"
+  }
+}
+```
+Estas directrices nos indican, por orden, que queremos generar código compatible con los últimos estándares, que el directorio de salida sea dist, que los fichero fuente están en src y por último indicamos un estándar para cargar código desde ficheros independientes.
+
+Ese directorio src no está creado. No existe. Por tanto, vamos a generarlo dentro de nuestra carpeta hello-world:
+```bash
+...$ mkdir src
+...$ cd src
+```
+Creemos el fichero de nuestro "Hola mundo":
+```bash
+...$ touch index.ts
+...$ ls
+```
+Abrimos el fichero en el editor y ponemos estas lineas:
+```typescript
+let myString: string = "Hola Mundo";
+console.log(myString);
+```
+Guardamos y ejecutamos en la terminal el compilador
+```bash
+...$ tsc
+```
+Ese comando habrá creado el directorio dist junto a un fichero index.js, tal y como hemos indicado en el fichero de configuración.
+Vamos a ver qué diferencias hay entre este fichero js y nuestro código en Typescript.
+```bash
+...$ diff src/index.ts dist/index.js 
+```
+Vemos que la diferencia está en la declaración del string. Esto se debe a que Typescript es un lenguaje tipado y este tipo de declaraciones nos permite evitar errores.
+
+Ahora si, veamos si nuestro **Hola mundo** ha funcionado:
+```bash
+...$ node dist/index.js
+```
+Si todo ha salido bien deberías ver tu precioso "Hola mundo".
+
+## 3. Dificultades 
+A la hora de realizar la práctica hubo un problema general entre los alumnos con las extensiones. En la parte donde se nos recomienda instalar la extensiones recomendadas que encontramos al final del marketplace, una de ellas daba un conflicto con la conexión SSH y continuamente hacía que esta cayera. Entre todos llegamos a la conclusión de que este era el problema ya que fuimos probando, desactivando las extensiones, hasta resolver el problema. Finalmente, indagando en la red hemos visto foros donde también reportan este problema.
+
+## 4. Conclusión
+Esta práctica nos permite tener 
+
+
