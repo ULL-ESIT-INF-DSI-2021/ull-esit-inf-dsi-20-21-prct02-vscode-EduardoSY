@@ -9,7 +9,7 @@ Durante el informe vamos a ver textos e instrucciones que corresponden a comando
 ESTO CORRESPONDE A TEXTO DE ENTRADA O SALIDA (Depende del contexto)
 ```
 
-## 1. Introduccion
+## 1. Introducción
 En esta segunda práctica vamos a centrarnos más en el entorno de trabajo. Vamos a configurar el entorno de Visual Studio Code para poder trabajar cómodamente, instalando extensiones y configurando la conexión SSH.
 Una vez hecho esto vamos a tener una primera toma de contacto con Typescript creando un "Hola mundo".
 
@@ -29,7 +29,7 @@ o haciendo uso de snap (otro gestor de paquetes)
 
 ![VS Code](images/vscode.PNG)
 
-En mi caso particular ya tenía instalado VSCode y lo he usado previamente pero si es la primera vez que tienes contacto con este editor/"ide" es recomendable que mires algún tutorial o guía para saber cómo son las funcionalidades del programa. En la documentación de VSCode tenemos la sección de **[Manejo básico](https://code.visualstudio.com/docs/editor/codebasics)** donde podemos aprender un poco, a lo largo de varias guías, cómo usar este editor.
+En mi caso particular ya tenía instalado VSCode y lo he usado previamente pero si es la primera vez que tienes contacto con este editor/ide es recomendable que mires algún tutorial o guía para saber cómo son las funcionalidades del programa. En la documentación de VSCode tenemos la sección de **[Manejo básico](https://code.visualstudio.com/docs/editor/codebasics)** donde podemos aprender un poco, a lo largo de varias guías, cómo usar este editor.
 
 ### 2.2 Conectándose remotamente usando VS Code
 Lo primero que vamos a hacer es descargarnos la extensión [Remote-SSH](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). Gracias a esta extensión podremos conectarnos por SSH a la máquina del IaaS.
