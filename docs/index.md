@@ -57,15 +57,15 @@ iaas-dsi44
 ### 2.3 Instalando más extensiones
 Vamos a instalar más extensiones para mejorar nuestra productividad. La primera de todas es **Live Share Extension Pack**. Esta extensión es un pack, como su nombre indica, dedicado a poder colaborar con otros usuarios simultaneamente en nuestro código. Además de poder compartir nuestros ficheros también nos proporciona chat de audio y voz.
 
-Para poder usar esta extensión debemos iniciar sesion con Github o Microsoft (para motivos de identificación en la sesión). Si somos el anfitrión se nos generará un link que debemos compartir con nuestros colaboradores. A la izquierda veremos quienes están conectados, qué se está compartiendo, etc. Si quieremos información más específica podemos obtenerla en el [Marketplace de Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack), en el apartado de **Getting started** o en esta [guia de colaboracion en VS Code](https://code.visualstudio.com/learn/collaboration/live-share). 
+Para poder usar esta extensión debemos iniciar sesion con Github o Microsoft (para motivos de identificación en la sesión). Si somos el anfitrión se nos generará un link que debemos compartir con nuestros colaboradores. A la izquierda veremos quienes están conectados, qué se está compartiendo, etc. Si queremos información más específica podemos obtenerla en el [Marketplace de Live Share Extension Pack](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare-pack), en el apartado de **Getting started** o en esta [guía de colaboración en VS Code](https://code.visualstudio.com/learn/collaboration/live-share). 
 
 Además se nos recomienda instalar las extensiones que tenemos al final de la página de Live Share Extension Pack. Lo primordial para nuestro caso es instalar lo relacionado con el workflow de Github. El resto es a nuestra elección.
 
-Una cosa a tener en cuenta es que, cuando estamos conectados a la máquina por SSH y queremos instalar una extensión, esa extensión se instalará **solo** en la máquina a la que estamos conectados, no en la local. Si queremos instalarlo también en nuestra máquina local debemos desconectarnos, instalarlas y luego conectarnos a la MV por SSH. Una vez conectados podemos activar en el menú de **Extensiones** las que consideremos.
+Una cosa a tener en cuenta es que, cuando estamos conectados a la máquina por SSH y queremos instalar una extensión, estas se instalarán **solo** en la máquina a la que estamos conectados, no en la local. Si queremos instalarlo también en nuestra máquina local debemos desconectarnos, instalarlas y luego conectarnos a la MV por SSH. Una vez conectados podemos activar en el menú de **Extensiones** las que consideremos.
 
 ![Extensiones](images/extensiones.PNG)
 
-**IMPORTENTE: No recomiendo instalar la extensión Code Time por los conflictos que ocasiona con la conexión SSH**
+**IMPORTANTE: No recomiendo instalar la extensión Code Time por los conflictos que ocasiona con la conexión SSH**
 
 ### 2.4 Nuestro primer "Hola mundo"
 Antes de comenzar con el código vamos a instalar la extensión Eslint que nos comprueba el estilo del código de nuestros ficheros js y ts. Como bien nos dice la guia de la extensión, antes de instalarla debemos tener instalado eslint. Ya que esto es algo que vamos a utilizar mucho a lo largo del curso vamos a instalarlo globalmente con la opción:
@@ -76,7 +76,7 @@ Vamos a instalar el compilador de Typescript. Para ello haremos:
 ```bash
 ...$ npm install --global typescript
 
-// Comprobams que está instalado y vemos la versión
+// Comprobamos que está instalado y vemos la versión
 ...$ tsc --version
 ```
 Como es de esperar, la opción --global nos permite que el compilador se instale de manera global.
@@ -93,7 +93,7 @@ Creemos una carpeta para nuestro primer proyecto:
 ...$ cd hello-world/
 ```
 
-El siguiente comando nos permite crear un fichero package.json cuya función es, entre otras, establecer las dependencias de desarrollo y ejecución del proyecto a modo de paquetes.
+El siguiente comando nos permite crear un fichero **package.json** cuya función es, entre otras, establecer las dependencias de desarrollo y ejecución del proyecto a modo de paquetes.
 ```bash
 ...$ npm init --yes
 
@@ -108,7 +108,7 @@ El siguiente comando nos permite crear un fichero package.json cuya función es,
 Abrimos nuestro directorio **Hello World** en VS Code. Para ello vamos a la opción **File** en la barra superior, **Open folder...** y abrimos nuestra carpeta.
 También podemos crear un workspace si lo deseamos. Para ello vamos de nuevo a **File** pero esta vez seleccionamos **Add Folder to Workspace...**. Si no teniamos ningún workspace previo se nos creará uno nuevo. Guardamos el espacio de trabajo en la opción **Save Workspace As...** y listo, ya podemos empezar a trabajar.
 
-Vamos a crear un fichero tsconfig.json donde indicamos las opciones para el compilador de Typescript. Para ello hacemos:
+Vamos a crear un fichero **tsconfig.json** donde indicamos las opciones para el compilador de Typescript. Para ello hacemos:
 ```bash
 ...$ touch tsconfig.json
 ```
@@ -128,6 +128,8 @@ Estas directrices nos indican, por orden, que queremos generar código compatibl
 Ese directorio src no está creado. No existe. Por tanto, vamos a generarlo dentro de nuestra carpeta hello-world:
 ```bash
 ...$ mkdir src
+
+// Accedemos a src
 ...$ cd src
 ```
 Creemos el fichero de nuestro "Hola mundo":
@@ -143,7 +145,7 @@ Abrimos el fichero en el editor y ponemos estas lineas:
 let myString: string = "Hola Mundo";
 console.log(myString);
 ```
-Guardamos y ejecutamos en la terminal el compilador
+Guardamos y ejecutamos el compilador en la terminal 
 ```bash
 ...$ tsc
 ```
@@ -154,7 +156,7 @@ Vamos a ver qué diferencias hay entre este fichero js y nuestro código en Type
 ```
 Vemos que la diferencia está en la declaración del string. Esto se debe a que Typescript es un lenguaje tipado y este tipo de declaraciones nos permite evitar errores.
 
-Ahora si, veamos si nuestro **Hola mundo** ha funcionado:
+Ahora si; veamos si nuestro **Hola mundo** ha funcionado:
 ```bash
 ...$ node dist/index.js
 ```
@@ -163,7 +165,9 @@ Si todo ha salido bien deberías ver tu precioso "Hola mundo".
 ![Final practica](images/final.jpg)
 
 ## 3. Dificultades 
-A la hora de realizar la práctica hubo un problema general entre los alumnos con las extensiones. En la parte donde se nos recomienda instalar la extensiones recomendadas que encontramos al final del marketplace, una de ellas daba un conflicto con la conexión SSH y continuamente hacía que esta cayera. Entre todos llegamos a la conclusión de que este era el problema ya que fuimos probando, desactivando las extensiones, hasta resolver el problema. Finalmente, indagando en la red hemos visto foros donde también reportan este problema.
+A la hora de realizar la práctica hubo un problema general entre los alumnos con las extensiones. En la parte donde se nos recomienda instalar la extensiones recomendadas que encontramos al final del marketplace, una de ellas daba un conflicto con la conexión SSH y continuamente hacía que esta cayera.
+
+Entre todos llegamos a la conclusión de que este era el problema ya que fuimos probando, desactivando las extensiones, hasta dar con un remedio. Finalmente, indagando en la red hemos visto personas que también reportan este problema.
 
 ## 4. Conclusión
 Esta práctica nos permite tener un entorno de desarrollo más óptimo y cómodo, tanto para nosotros como desarrolladores como para colaborar con nuestros compañeros. Conocer esas extenciones puede mejorar nuestra productividad y así poder dedicarle más tiempo a otras cosas más importantes.
